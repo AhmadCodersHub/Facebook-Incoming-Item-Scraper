@@ -1,25 +1,36 @@
-Facebook-Incoming-Item-Scraper:
-  Login the Facebook:
-    - "First, check if Facebook is logged in or not."
-    - "If Facebook is already logged in, no need to log in again."
-    - "If not logged in, retrieve credentials from 'credentials.csv' and log in."
-    - "Save cookies for future logins."
-    - "Handle errors properly: If Facebook asks for verification (like a security code), the script should wait instead of stopping with an error."
+# Facebook Incoming Item Scraper  
 
-  Inputs File Information:
-    - "If 'input_url.txt' contains a URL, use it directly (no need to apply marketplace filters)."
-    - "If 'input_url.txt' is empty, apply filters from 'input_file.csv' to search the Facebook Marketplace."
-    - "If input URL is missing, search using filters across all locations listed in 'location.txt'."
-    - "Extract all items uploaded in the last 24 hours."
+## **Login Process**  
+1. Check if Facebook is already logged in.  
+   - If logged in, continue without re-authentication.  
+   - If not logged in, retrieve credentials from `credentials.csv` and log in.  
+   - Save cookies for future logins.  
+2. Handle Facebook's security measures
+   - If approval or a verification code is required, wait for input instead of stopping with an error.  
+   - Ensure smooth error handling.  
 
-  Output:
-    - "The extracted data should match the format of the provided sample file."
+## **Input File Processing**  
+1. **Direct URL Usage**
+   - If `input_url.txt` contains a URL, use it directly without applying marketplace filters.  
+2. **Filtered Search**:  
+   - If no URL is available, apply filters from `input_file.csv` to the Facebook Marketplace.  
+   - Search the same filters across all locations listed in `location.txt` and extract relevant data.  
+3. **Time-Based Extraction**
+   - Extract only items uploaded within the last 24 hours.  
 
-  Additional Features:
-    - "Automatically switch accounts using cookies after extracting 20–30 products to avoid Facebook blocking."
-    - "Ensure the bot is user-friendly and undetectable."
-    - "Test multiple times to eliminate all possible errors."
-    - "Deploy the bot on a server and run it for 5–6 hours daily."
+## **Output Format**  
+- The extracted data should match the structure of the provided sample file.  
 
-  Reference Screenshot:
-    - ![Screenshot](https://github.com/user-attachments/assets/d10eb4d8-1091-4237-87d2-4144e0e8bc93)
+## **Additional Features**  
+- **Automatic Account Switching**
+  - Change login (using cookies) after extracting 20–30 products to avoid Facebook blocking the account.  
+- **Undetectable & User-Friendly**
+  - Ensure the scraper runs smoothly without detection.  
+  - Implement robust error handling and retries.  
+- **Server Deployment**
+  - The scraper must be able to run continuously for **5–6 hours daily** on a server.  
+- **Thorough Testing**
+  - Test multiple times to eliminate errors and ensure stability.  
+
+## **Reference Screenshot**  
+- ![Screenshot](https://github.com/user-attachments/assets/d10eb4d8-1091-4237-87d2-4144e0e8bc93)  
